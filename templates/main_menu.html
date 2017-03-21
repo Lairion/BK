@@ -1,10 +1,31 @@
 {% extends "base.html" %}
+{% block CSS %}
+	<style>
+		p {
+			font-family: Verdana;
+			font-weight: 30px;
+
+		}
+		.block_blue{
+			background-color:#009933;
+			border-radius: 4px;
+			color: #ffff66;
+		}
+		#search{
+			width: 145px;
+
+		}
+	</style>
+{% endblock CSS %}
 {% block content %}
+	<input type="text">
+	<button id="search" type="submit" class="btn btn-success">Search</button>
+	<br>
 	{%for room in rooms %}
-		<div class="col-sm-12">
-			<div class="col-sm-3">{{room.name}}</div>
-			<div class="col-sm-3">{%if room.game_type == "SP"%} <p>Simpleplay</p> {% else %} <p>Multiplay</p> {% endif %}</div>
-			<div class="col-sm-3">{{room.data_begin}}</div>
+		<div class="col-sm-3 block_blue">
+			<div class="col-sm-12">{{room.name}}</div>
+			<div class="col-sm-12">{%if room.game_type == "SP"%} <p>Simpleplay</p> {% else %} <p>Multiplay</p> {% endif %}</div>
+			<div class="col-sm-12">{{room.data_begin}}</div>
 		</div>
 
 	{% endfor %}
