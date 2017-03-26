@@ -1,21 +1,7 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% block CSS %}
-	<style>
-		p {
-			font-family: Verdana;
-			font-weight: 30px;
-
-		}
-		.block_blue{
-			background-color:#009933;
-			border-radius: 4px;
-			color: #ffff66;
-		}
-		#search{
-			width: 145px;
-
-		}
-	</style>
+	<link rel="stylesheet" href="{% static 'css/mainStyleSheet' %}">
 {% endblock CSS %}
 {% block content %}
 	<input type="text">

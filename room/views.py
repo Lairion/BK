@@ -8,3 +8,8 @@ def show_rooms(request):
 		"rooms": rooms
 	}
 	return render(request,"main_menu.html",context)
+def create_players(request):
+	context = {
+		"title":"Create players"	
+	}
+	return render(request,"characters_create.html", context)
