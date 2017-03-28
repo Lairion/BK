@@ -6,18 +6,20 @@ class Room(models.Model):
 	name = models.CharField(max_length = 50)
 	game_type = models.CharField(max_length = 3, choices = GAME_TYPES) 
 	data_begin = models.DateField(auto_now = True)
-	data_end = models.DateField(blank = True)
+	data_end = models.DateField(blank = True,null=True)
+	def __str__(self):
+		return self.name
 
-class Character:
+class Character(models.Model):
+	RACE = (("HM","Human"),("EL","Elf"),("OR","Orc"),("DW","Dwarf"))
+	room = models.ForeignKey(Room)
+	name = models.CharField(max_length = 50)
+	race = models.CharField(max_length = 3, choices = RACE)
 	BODY_PARTS = ["Head","Torso","Left hand","Right hand","Legs"]
 	health = 100
-	health_shield = 100
-	state = False
+	def __str__(self):
+		return self.name
 
-	def __init__ (self, name, race):
-		self.name = name
-		self.race = race
-	
 	def hit(self,target):
 		if target == 0:
 			self.health -= 50

@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% block title %}{{title}}{% endblock title %}
 {% block CSS %}
-	<link rel="stylesheet" href="{% static 'css/mainStyleSheet' %}">
+	<link rel="stylesheet" href="{% static 'css/mainStyleSheet.css' %}">
 {% endblock CSS %}
 {% block content %}
 	<input type="text">
@@ -9,9 +10,14 @@
 	<br>
 	{%for room in rooms %}
 		<div class="col-sm-3 block_blue">
-			<div class="col-sm-12">{{room.name}}</div>
+			<div class="col-sm-12">{{room}}</div>
 			<div class="col-sm-12">{%if room.game_type == "SP"%} <p>Simpleplay</p> {% else %} <p>Multiplay</p> {% endif %}</div>
 			<div class="col-sm-12">{{room.data_begin}}</div>
+			{% for character in characters %}
+				{% if character.room == room.id %}
+					<p>{{character}}</p>
+				{% endif %}
+			{%endfor%}
 		</div>
 
 	{% endfor %}

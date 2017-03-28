@@ -5,9 +5,16 @@
 		<link rel="stylesheet" href="{% static 'css/charcreate.css' %}">
 {% endblock CSS %}
 {% block content %}
-<div class="delius">
-	<div class="col-xs-12 col-sm-6 player_div charactr_div" >;lkjgdsf;l</div>
-	<div class="col-xs-12 col-sm-6 enemy_div charactr_div" >sdfgsdfg</div>
+<form action="/create_room/" method="GET" >
+	Name Room: <input type="text" name = "nameRoom"><br>
+	<div class="col-xs-12 col-sm-6 player_div charactr_div" >
+	Name:<input type="text" name="nameChar" placeholder="Input Name"><br>
+	Race:<input type="text" name="raceChar" placeholder="Input Race"></div>
+	<div class="col-xs-12 col-sm-6 enemy_div charactr_div" >
+	Name:<input type="text" name="nameEnem"><br>
+	Race:<input type="text" name="raceEnem"></div>
 	</div>
+	<button type="submit" class="btn btn-success">OK</button>
+</form>	
 		
 {% endblock content %}
