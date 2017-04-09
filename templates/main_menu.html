@@ -6,7 +6,9 @@
 {% endblock CSS %}
 {% block content %}
 	<input type="text">
-	<button id="search" type="submit" class="btn btn-success">Search</button>
+	<button id="search" type="submit" class="btn">Search</button>
+	<br>
+	<a href="/createplayers/"><button type="submit" class="btn btn-success" >Create room</button></a>
 	<br>
 	{%for room in rooms %}
 		<div class="col-sm-3 block_blue">
@@ -14,8 +16,8 @@
 			<div class="col-sm-12">{%if room.game_type == "SP"%} <p>Simpleplay</p> {% else %} <p>Multiplay</p> {% endif %}</div>
 			<div class="col-sm-12">{{room.data_begin}}</div>
 			{% for character in characters %}
-				{% if character.room == room.id %}
-					<p>{{character}}</p>
+				{% if character.room == room %}
+					<p>{{character}}</p> race:{{character.race}}
 				{% endif %}
 			{%endfor%}
 		</div>

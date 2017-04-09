@@ -11,7 +11,7 @@ class Room(models.Model):
 		return self.name
 
 class Character(models.Model):
-	RACE = (("HM","Human"),("EL","Elf"),("OR","Orc"),("DW","Dwarf"))
+	RACE = (("HM","Human"),("EL","Elf"),("OR","Orc"),("DW","Dwarf"),("WR","Werewolf"))
 	room = models.ForeignKey(Room)
 	name = models.CharField(max_length = 50)
 	race = models.CharField(max_length = 3, choices = RACE)
