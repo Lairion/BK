@@ -30,4 +30,7 @@ def create_players(request):
 		"races":Character.RACE	
 	}
 	return render(request,"characters_create.html", context)
+def fight_room(request):
+	context = {"title":"Fight room"}
+	return render(request,"fight_room.html", context)
 	

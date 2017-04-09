@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}{{title}}{% endblock title %}
+{% block CSS %}
+	<link rel="stylesheet" href="{% static 'css/fightstyle.css'%}">
+
+{% endblock CSS%}
+{% block content %}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-6" style="padding: 0px">
+			<div class="col-xs-2">Name</div>
+			<div class="col-xs-10 health_bar">Health</div>
+		</div>
+		<div class="col-xs-6" style="padding: 0px">
+			<div class="col-xs-10 health_bar">health</div>
+			<div class="col-xs-2">name</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-6">
+			<div class="col-xs-12"></div>
+			<div class="col-xs-4"></div>
+			<div class="col-xs-4"></div>
+			<div class="col-xs-4"></div>
+			<div class="col-xs-12"></div>
+		</div>
+		<div class="col-xs-6">
+			<div class="col-xs-12"></div>
+			<div class="col-xs-4"></div>
+			<div class="col-xs-4"></div>
+			<div class="col-xs-4"></div>
+			<div class="col-xs-12"></div>
+		</div>
+	</div>
+</div>
+{% endblock content%}
+{% block scripts %}
+{% endblock scripts %}

@@ -1,0 +1,6 @@
+.health_bar{
+	height: 20px;
+	padding: 0px !important;
+	background-color: #ff3300;
+	border:1px solid #66ff66;
+}
