@@ -3,29 +3,56 @@
 {% block title %}{{title}}{% endblock title %}
 {% block CSS %}
 	<link rel="stylesheet" href="{% static 'css/fightstyle.css'%}">
+	<style>
+		.player_container{
+			background-image: url({% static 'img/human.png'%});
+			background-position: center center; 
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+		.player_container>div{
+			height: 200px
+		}
+		.enemy_container{
+			background-image: url({% static 'img/ninza.png'%});
+			background-position: center center; 
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+		.enemy_container>div{
+			height: 200px
+		}
+		.background_room{
+			background-image: url({% static 'img/arena.png'%});
+			background-position: center center; 
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+		
 
+	</style>
 {% endblock CSS%}
 {% block content %}
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-xs-6" style="padding: 0px">
 			<div class="col-xs-2">Name</div>
-			<div class="col-xs-10 health_bar">Health</div>
+			<div class="col-xs-10 health_bar"><div class="health_div" style="float: left; width: 40% "></div></div>
 		</div>
 		<div class="col-xs-6" style="padding: 0px">
-			<div class="col-xs-10 health_bar">health</div>
+			<div class="col-xs-10 health_bar"><div class="health_div" style="float: right; width: 50% "></div></div>
 			<div class="col-xs-2">name</div>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-xs-6">
+	<div class="row background_room">
+		<div class="col-xs-6 player_container">
 			<div class="col-xs-12"></div>
 			<div class="col-xs-4"></div>
 			<div class="col-xs-4"></div>
 			<div class="col-xs-4"></div>
 			<div class="col-xs-12"></div>
 		</div>
-		<div class="col-xs-6">
+		<div class="col-xs-6 enemy_container">
 			<div class="col-xs-12"></div>
 			<div class="col-xs-4"></div>
 			<div class="col-xs-4"></div>
