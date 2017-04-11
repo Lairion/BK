@@ -1,7 +1,12 @@
 from django.views.decorators.csrf import csrf_protect
 from django.shortcuts import render
+from django.http import JsonResponse, HttpResponse
 from .models import Room,Character
+from .character import Character_Demo
+import random
 # Create your views here.
+player = Character_Demo("Manul","Ork")
+enemy = Character_Demo("Hulk","Ork")
 @csrf_protect
 def show_rooms(request):
 	if request.method == "POST":
@@ -33,4 +38,23 @@ def create_players(request):
 def fight_room(request):
 	context = {"title":"Fight room"}
 	return render(request,"fight_room.html", context)
+def attack(request):
+	global player,enemy 
+	if request.is_ajax():
+		part_enemy = request.GET.get("partEnemy")
+		part_player = request.GET.get("partPlayer")
+		print(part_player)
+		print(part_enemy)
+		enemy.choice_target(random.randint(0,4))
+		enemy.body_block(random.randint(0,4))
+		player.choice_target(int(part_enemy))
+		player.body_block(int(part_player))
+		enemy.attack(player)
+		player.attack(enemy)
+		context = {
+			"healthEnemy": enemy.health,
+			"healthPlayer": player.health
+		}
+		jsresp = JsonResponse(context)
+		return HttpResponse(jsresp.content, content_type='text/html')
 	

@@ -28,6 +28,12 @@
 			background-repeat: no-repeat;
 			background-size: contain;
 		}
+		.clicked_enemy{
+			background-color: rgba(255, 0, 0,0.3)
+		}
+		.clicked_player{
+			background-color: rgba(102, 153, 255,0.3)
+		}
 		
 
 	</style>
@@ -37,30 +43,32 @@
 	<div class="row">
 		<div class="col-xs-6" style="padding: 0px">
 			<div class="col-xs-2">Name</div>
-			<div class="col-xs-10 health_bar"><div class="health_div" style="float: left; width: 40% "></div></div>
+			<div class="col-xs-10 health_bar "><div id ="player" class="health_div " style="float: left; width: 40% "></div></div>
 		</div>
 		<div class="col-xs-6" style="padding: 0px">
-			<div class="col-xs-10 health_bar"><div class="health_div" style="float: right; width: 50% "></div></div>
+			<div  class="col-xs-10 health_bar "><div id="enemy" class="health_div" style="float: right; width: 50% "></div></div>
 			<div class="col-xs-2">name</div>
 		</div>
 	</div>
 	<div class="row background_room">
 		<div class="col-xs-6 player_container">
-			<div class="col-xs-12"></div>
-			<div class="col-xs-4"></div>
-			<div class="col-xs-4"></div>
-			<div class="col-xs-4"></div>
-			<div class="col-xs-12"></div>
+			<div class="col-xs-12 click_me_player" data-part="0"></div>
+			<div class="col-xs-4 click_me_player" data-part="2"></div>
+			<div class="col-xs-4 click_me_player" data-part="1"></div>
+			<div class="col-xs-4 click_me_player" data-part="3"></div>
+			<div class="col-xs-12 click_me_player" data-part="4"></div>
 		</div>
 		<div class="col-xs-6 enemy_container">
-			<div class="col-xs-12"></div>
-			<div class="col-xs-4"></div>
-			<div class="col-xs-4"></div>
-			<div class="col-xs-4"></div>
-			<div class="col-xs-12"></div>
+			<div class="col-xs-12 click_me_enemy" data-part="0"></div>
+			<div class="col-xs-4 click_me_enemy" data-part="2"></div>
+			<div class="col-xs-4 click_me_enemy" data-part="1"></div>
+			<div class="col-xs-4 click_me_enemy" data-part="3"></div>
+			<div class="col-xs-12 click_me_enemy" data-part="4"></div>
 		</div>
 	</div>
+	<button id="fight" class="btn btn-danger">Attack</button>
 </div>
 {% endblock content%}
 {% block scripts %}
+<script src="{% static 'js/fight.js'%}"></script>
 {% endblock scripts %}
