@@ -2,12 +2,16 @@ p {
 			font-family: Verdana;
 			font-weight: 30px;
 }
-.block_blue{
-			background-color:#009933;
+.go_to_room{
+			background-color:rgba(51, 204, 51, 0.3);
 			border-radius: 4px;
 			color: #ffff66;
+			border:1px solid #66ff33;
+
 		}
-#search{
-			width: 145px;
+.search{
+		z-index: 99;
+		width: 145px;
+
 
 }

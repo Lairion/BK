@@ -9,12 +9,17 @@ $(document).ready(function(){
 		$(this).toggleClass("clicked_enemy");
 	});
 	$("#fight").click(function(){
+        a=$("#player_name").data("id");
+        b =$("#emeny_name").data("id")
 		$.ajax({
             type: "GET",
             url: "/attack/",
             data:{
                 'partEnemy':$(".clicked_enemy").data('part'),
                 'partPlayer':$(".clicked_player").data('part'),
+                // Допонительные параметры для поиска персонажей в базе данных
+                'enemyId':$(".player_name").data('id'),
+                'playerId':$(".enemy_name").data('id'),
             },
             cache:false,
             success:

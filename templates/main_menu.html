@@ -5,22 +5,32 @@
 	<link rel="stylesheet" href="{% static 'css/mainStyleSheet.css' %}">
 {% endblock CSS %}
 {% block content %}
-	<input type="text">
-	<button id="search" type="submit" class="btn">Search</button>
-	<br>
-	<a href="/createplayers/"><button type="submit" class="btn btn-success" >Create room</button></a>
-	<br>
+	<div class="row">
+		<div class="col-xs-4 col-xs-offset-8" align="right">
+			<input type="text">
+			<button type="submit" class="btn">Search</button>
+			<br>
+			<a href="/create_players/" style="float:right"><button type="submit" class="btn btn-success" >Create room</button></a>
+			<br>
+		</div>
+	</div>
+	
 	{%for room in rooms %}
-		<div class="col-sm-3 block_blue">
-			<div class="col-sm-12">{{room}}</div>
-			<div class="col-sm-12">{%if room.game_type == "SP"%} <p>Simpleplay</p> {% else %} <p>Multiplay</p> {% endif %}</div>
-			<div class="col-sm-12">{{room.data_begin}}</div>
+	{# Переход на выбраную комнату по нажатию. #}
+		<a href="{{room.get_absolute_url}}" title="">
+		<div class="col-sm-3 go_to_room" data-id="{{room.id}}">
+			<div class="col-sm-12">Name room: {{room}}</div>
+			<div class="col-sm-12" >When start: {{room.data_begin}}</div>
 			{% for character in characters %}
 				{% if character.room == room %}
-					<p>{{character}}</p> race:{{character.race}}
+					<div class="col-xs-12">
+
+						Player name: {{character}} <br> Player race:{# Адекватное отображения расы #}{%for race in races%}{%if race.0 == character.race %}{{race.1}}{%endif%}{%endfor%}<br>
+					</div>
 				{% endif %}
 			{%endfor%}
 		</div>
+		</a>
 
 	{% endfor %}
 {% endblock %}

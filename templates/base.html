@@ -7,19 +7,39 @@
 		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}" >
 		<!-- Optional theme -->
 		<link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
+		{# Стили кристалов #}
+		<link rel="stylesheet" href="{% static 'css/cristalstylesheet.css' %}">
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="{% static 'js/jquery-3.2.0.min.js' %}"></script>
 		<script src="{% static 'js/bootstrap.min.js'%}" ></script>
+		<style>
+			body{
+				background-color: black;
+			}
+		</style>
 		{% block CSS %} 
 
 		{% endblock CSS %}
 	</head>
 	<body>
+		{# Анимация кристалов #}
+		<div id="crystals1">
+    		<div class="crystal_01"></div>
+    		<div class="crystal_02"></div>
+    		<div class="crystal_03"></div>    
+  		</div>
+  		<div id="crystals2">
+    		<div class="crystal_01"></div>
+    		<div class="crystal_02"></div>
+    		<div class="crystal_03"></div>    
+  		</div>
 		{% block content %}
 
 		{% endblock %}
 		{% block scripts %}
 
 		{% endblock %}
+		{# Скрипт анимации #}
+		<script src="{% static 'js/cristal_move.js'%}" ></script>
 	</body>
 </html>

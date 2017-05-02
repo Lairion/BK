@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """FightClub URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -20,7 +21,8 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include("room.urls"))
+    # Добавил namespace
+    url(r'^', include("room.urls", namespace="arena") )
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
